@@ -52,6 +52,7 @@ def get_set_for_card(card):
 
 @app.route("/hello_world", methods=["POST"])
 def h():
+    conn = get_db_connection()
     print("hello world")
     return "hey"
 @app.route('/create_room', methods=['POST'])
