@@ -50,8 +50,13 @@ def get_set_for_card(card):
         return {'Spades': 0, 'Hearts': 1, 'Clubs': 2, 'Diamonds': 3}[suit]
     return {'Spades': 4, 'Hearts': 5, 'Clubs': 6, 'Diamonds': 7}[suit]
 
+@app.route("/hello_world", methods=["POST"])
+def h():
+    print("hello world")
+    return "hey"
 @app.route('/create_room', methods=['POST'])
 def create_room():
+    print(f"Incoming data: {request.json}")
     room_id = str(uuid.uuid4())
     player_name = request.json.get('name')
     conn = get_db_connection()
